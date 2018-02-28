@@ -1,0 +1,6 @@
+E:\Code\C#\APPOOlab2\APPOOlab2\bin\Debug\APPOOlab2.exe.config
+E:\Code\C#\APPOOlab2\APPOOlab2\obj\Debug\APPOOlab2.csprojResolveAssemblyReference.cache
+E:\Code\C#\APPOOlab2\APPOOlab2\bin\Debug\APPOOlab2.exe
+E:\Code\C#\APPOOlab2\APPOOlab2\bin\Debug\APPOOlab2.pdb
+E:\Code\C#\APPOOlab2\APPOOlab2\obj\Debug\APPOOlab2.exe
+E:\Code\C#\APPOOlab2\APPOOlab2\obj\Debug\APPOOlab2.pdb
