@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace APPOOlab2
 {
-    class User
+    interface IBookControllable
     {
-        
-
+        void AddNewBook(Book book);
+        void DeleteBookById(int id);
     }
 }

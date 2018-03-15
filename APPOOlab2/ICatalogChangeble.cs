@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace APPOOlab2
 {
-    class User
+    interface ICatalogChangeble
     {
-        
-
+        void ChangePrice(int id, int price);
+        void ChangeName(int id, string name);
     }
 }

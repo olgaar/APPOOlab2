@@ -11,25 +11,32 @@ namespace APPOOlab2
     {
         static void Main(string[] args)
         {
-
-            Admin admin = new Admin(114589723, 12);
-            admin.ShowCatalog();
-            admin.BuyBook(2);
-            admin.ShowCatalog();
-            admin.ShowBookById(3);
-
-            Manager manager = new Manager(123654);
-            manager.ChangePrice(1, 200);
-            manager.ShowCatalog();
             Book book = new Book();
             book.setId(5); book.setName("Tom Sawyer Mark Twain"); book.setPrice(90); book.setQuantity(30);
-            manager.AddNewBook(book);
+
+
+            Stock stock = new Stock();
+            stock.DeleteBookById(5);
+            stock.AddNewBook(book);
+            stock.ChangeQuantity(5, 20);            
+
+            MarketingDepartment manager = new MarketingDepartment();
+            manager.ChangePrice(1, 100);
+            manager.ChangeName(5, "Tommy");
+            manager.ShowCatalog();
+            manager.ShowBookById(1);
+           
+            
+            
+            ClientInterface customer = new ClientInterface();
+            customer.ShowCatalog();
+            customer.BuyBook(5);
+            customer.ShowCatalog();
+
+            manager.ShowCatalog();
+            stock.DeleteBookById(5);
             manager.ShowCatalog();
             
-            Customer customer = new Customer(3, "batman");
-            customer.DeleteBookById(5);
-            customer.ShowCatalog();
-            var books= customer.ReturnAllBooks();
 
         }
     }

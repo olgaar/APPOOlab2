@@ -63,7 +63,29 @@ namespace APPOOlab2
             DbAccessor dbAccessor = new DbAccessor();
             var conn = dbAccessor.OpenConnection();
 
-            SqlCommand cmd = new SqlCommand(String.Format("UPDATE[BooksForAppoo].[dbo].[Books] SET quantity = {1} WHERE id = {0}", id, price), conn);
+            SqlCommand cmd = new SqlCommand(String.Format("UPDATE[BooksForAppoo].[dbo].[Books] SET price = {1} WHERE id = {0}", id, price), conn);
+            cmd.ExecuteNonQuery();
+
+            dbAccessor.CloseConnection(conn);
+
+        }
+        public void ChangeName(int id, string name)
+        {
+            DbAccessor dbAccessor = new DbAccessor();
+            var conn = dbAccessor.OpenConnection();
+
+            SqlCommand cmd = new SqlCommand(String.Format("UPDATE[BooksForAppoo].[dbo].[Books] SET name = {1} WHERE id = {0}", id, name), conn);
+            cmd.ExecuteNonQuery();
+
+            dbAccessor.CloseConnection(conn);
+
+        }
+        public void ChangeQuantity(int id, int quantity)
+        {
+            DbAccessor dbAccessor = new DbAccessor();
+            var conn = dbAccessor.OpenConnection();
+
+            SqlCommand cmd = new SqlCommand(String.Format("UPDATE[BooksForAppoo].[dbo].[Books] SET quantity = {1} WHERE id = {0}", id, quantity), conn);
             cmd.ExecuteNonQuery();
 
             dbAccessor.CloseConnection(conn);

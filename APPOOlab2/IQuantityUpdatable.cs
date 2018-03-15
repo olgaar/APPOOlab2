@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace APPOOlab2
 {
-    class User
+    interface IQuantityUpdatable
     {
-        
-
+        void ChangeQuantity(int id, int quantity);
     }
 }

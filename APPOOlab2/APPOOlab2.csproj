@@ -43,15 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Admin.cs" />
+    <Compile Include="ICatalogChangeble.cs" />
+    <Compile Include="Stock.cs" />
     <Compile Include="Book.cs" />
-    <Compile Include="Customer.cs" />
+    <Compile Include="ClientInterface.cs" />
     <Compile Include="DbAccessor.cs" />
-    <Compile Include="Manager.cs" />
+    <Compile Include="IBuyable.cs" />
+    <Compile Include="IBookControllable.cs" />
+    <Compile Include="IShowable.cs" />
+    <Compile Include="IQuantityUpdatable.cs" />
+    <Compile Include="MarketingDepartment.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Shop.cs" />
-    <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

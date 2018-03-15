@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace APPOOlab2
 {
-    class User
+    interface IBuyable
     {
-        
-
+        void BuyBook(int id);
     }
 }

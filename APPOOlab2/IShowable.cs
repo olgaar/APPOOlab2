@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace APPOOlab2
 {
-    class User
+    interface IShowable
     {
-        
-
+        void ShowBookById(int id);
+        void ShowCatalog();
     }
 }
