@@ -9,50 +9,36 @@ namespace APPOOlab2
 {
     public class MarketingDepartment : IShowable, ICatalogChangeble
     {
-        
+        DbAccessor dbAccessor= new DbAccessor();
+        CatalogPrinter catalogPrinter= new CatalogPrinter();
        
         public void ShowCatalog()
         {
-            DbAccessor dbAccessor = new DbAccessor();
             var conn = dbAccessor.OpenConnection();
-
-            SqlCommand cmd = new SqlCommand("Select * From Books", conn);
-            dbAccessor.PrintBooks(cmd);
-
+            var cmd = dbAccessor.ExecuteQuery("Select * From Books", conn);
+            catalogPrinter.PrintBooksForManager(cmd);
             dbAccessor.CloseConnection(conn);
         }
 
         public void ShowBookById(int id)
         {
-            DbAccessor dbAccessor = new DbAccessor();
             var conn = dbAccessor.OpenConnection();
-
-            SqlCommand cmd = new SqlCommand(String.Format("Select * From Books WHERE id = {0} ", id), conn);
-            dbAccessor.PrintBooks(cmd);
-
+            var cmd = dbAccessor.ExecuteQuery(String.Format("Select * From Books WHERE id = {0} ", id), conn);
+            catalogPrinter.PrintBooksForManager(cmd);
             dbAccessor.CloseConnection(conn);
         }
 
         public void ChangePrice(int id, int price)
         {
-            DbAccessor dbAccessor = new DbAccessor();
             var conn = dbAccessor.OpenConnection();
-
-            SqlCommand cmd = new SqlCommand(String.Format("UPDATE[BooksForAppoo].[dbo].[Books] SET price = {1} WHERE id = {0}", id, price), conn);
-            cmd.ExecuteNonQuery();
-
+            dbAccessor.ExecuteQuery(String.Format("UPDATE[BooksForAppoo].[dbo].[Books] SET price = {1} WHERE id = {0}", id, price), conn);
             dbAccessor.CloseConnection(conn);
-
         }
 
         public void ChangeName(int id, string name)
         {
-            DbAccessor dbAccessor = new DbAccessor();
             var conn = dbAccessor.OpenConnection();
-
-            SqlCommand cmd = new SqlCommand(String.Format("UPDATE[BooksForAppoo].[dbo].[Books] SET name = \'{1}\' WHERE id = {0}", id, name), conn);
-            cmd.ExecuteNonQuery();
-
+            dbAccessor.ExecuteQuery(String.Format("UPDATE[BooksForAppoo].[dbo].[Books] SET name = \'{1}\' WHERE id = {0}", id, name), conn);
             dbAccessor.CloseConnection(conn);
 
         }

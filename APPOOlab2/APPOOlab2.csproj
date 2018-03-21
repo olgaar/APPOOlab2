@@ -43,6 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CatalogPrinter.cs" />
     <Compile Include="ICatalogChangeble.cs" />
     <Compile Include="Stock.cs" />
     <Compile Include="Book.cs" />

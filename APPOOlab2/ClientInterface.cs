@@ -9,40 +9,31 @@ namespace APPOOlab2
 {
     public class ClientInterface:IShowable, IBuyable
     {
-        
-
+        DbAccessor dbAccessor = new DbAccessor();
+        CatalogPrinter catalogPrinter= new CatalogPrinter();        
        
         public void BuyBook(int id)
-        {
-            DbAccessor dbAccessor = new DbAccessor();
+        {          
             var conn = dbAccessor.OpenConnection();
-
-            SqlCommand cmd = new SqlCommand(String.Format("UPDATE[BooksForAppoo].[dbo].[Books] SET quantity = quantity - 1 WHERE id = {0}", id), conn);
-            cmd.ExecuteNonQuery();
-
+            dbAccessor.ExecuteQuery(String.Format("UPDATE[BooksForAppoo].[dbo].[Books] SET quantity = quantity - 1 WHERE id = {0}", id), conn);
             dbAccessor.CloseConnection(conn);
-
         }
 
         public void ShowCatalog()
         {
-            DbAccessor dbAccessor = new DbAccessor();
+           
             var conn = dbAccessor.OpenConnection();
             Console.WriteLine("WELCOME TO OUR SHOP!");
-            SqlCommand cmd = new SqlCommand("Select id, name, price From [BooksForAppoo].[dbo].[Books]", conn);
-            dbAccessor.PrintBooksForCustomer(cmd);
-
+            var cmd = dbAccessor.ExecuteQuery("Select id, name, price From [BooksForAppoo].[dbo].[Books]", conn);
+            catalogPrinter.PrintClientFields(cmd);
             dbAccessor.CloseConnection(conn);
         }
 
         public void ShowBookById(int id)
         {
-            DbAccessor dbAccessor = new DbAccessor();
             var conn = dbAccessor.OpenConnection();
-
-            SqlCommand cmd = new SqlCommand(String.Format("Select * From Books WHERE id = {0} ", id), conn);
-            dbAccessor.PrintBooks(cmd);
-
+            var cmd = dbAccessor.ExecuteQuery(String.Format("Select * From Books WHERE id = {0} ", id), conn);
+            catalogPrinter.PrintClientFields(cmd);
             dbAccessor.CloseConnection(conn);
         }
     }

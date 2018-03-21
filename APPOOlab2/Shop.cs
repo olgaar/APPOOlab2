@@ -42,7 +42,7 @@ namespace APPOOlab2
             var conn = dbAccessor.OpenConnection();
 
             SqlCommand cmd = new SqlCommand("Select * From Books", conn);
-            dbAccessor.PrintBooks(cmd);
+           // dbAccessor.PrintBooks(cmd);
 
             dbAccessor.CloseConnection(conn);
         }
@@ -53,7 +53,7 @@ namespace APPOOlab2
             var conn = dbAccessor.OpenConnection();
 
             SqlCommand cmd = new SqlCommand(String.Format("Select * From Books WHERE id = {0} ", id), conn);
-            dbAccessor.PrintBooks(cmd);
+           // dbAccessor.PrintBooks(cmd);
 
             dbAccessor.CloseConnection(conn);
         }

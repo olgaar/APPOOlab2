@@ -25,8 +25,7 @@ namespace APPOOlab2
             manager.ChangeName(5, "Tommy");
             manager.ShowCatalog();
             manager.ShowBookById(1);
-           
-            
+                        
             
             ClientInterface customer = new ClientInterface();
             customer.ShowCatalog();
